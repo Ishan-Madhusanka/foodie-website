@@ -87,6 +87,10 @@ img {
     margin-top:.5rem;
 }
 
+.m-auto{
+    margin: auto;
+}
+
 
 
 /*HEADER STYLING*/
@@ -304,15 +308,50 @@ h4 {
     padding: 3rem 6rem;
     border-radius: 3rem;
 }
+.app-container .content h2{
+    font-size: 4.5rem;
+    
+}
 
-.app-container img{
+.app-container .image-container img{
     width: 25rem;
+}
+
+/* SECTION 05 */
+
+.input-container{
+    width: 43rem;
+    max-width: 100%;
+    background:var(--pure-white);
+    padding: .8rem;
+    box-shadow: 
+    rgba(0, 0, 0, 0.1) 0 5px 8px ;
+    border-radius: 1rem;
+    margin: 4rem auto 0 auto ;
+}
+
+input[type="email"]{
+    flex: 1;
+    height: 7vh;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    padding-left: 1rem;
+}
+
+input[type="email"]:focus{
+    outline: none;
+
 }
 
 
 /*FOOTER STYLING*/
 
-
+.footer-container{
+    margin-top: 10rem;
+    padding-block: 4rem;
+    background: var(--hint-yellow);
+}
 
 
 
@@ -412,4 +451,15 @@ h4 {
     h2 {
         font-size: 3rem;
     }
+
+   /*  SECTION 04 */
+   .app-container{
+    padding: 2.2rem;
+   }
+
+   .app-container.content h2{
+    font-size: 3.5rem;
+
+
+   }
 }
