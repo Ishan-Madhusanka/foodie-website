@@ -286,6 +286,30 @@ h4 {
     color: var(--gold-finger);
 }
 
+.arrow{
+    width: 2.5rem;
+    aspect-ratio: 1;
+    border-radius: 100vw;
+    background: var(--gold-finger);
+    color: var(--lead);
+    text-align: center;
+    line-height: 2.5rem;
+
+}
+
+/* SECTION 04 */
+
+.app-container{
+    background: var(--hint-yellow);
+    padding: 3rem 6rem;
+    border-radius: 3rem;
+}
+
+.app-container img{
+    width: 25rem;
+}
+
+
 /*FOOTER STYLING*/
 
 
