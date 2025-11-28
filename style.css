@@ -292,7 +292,7 @@ h4 {
     overflow: auto;
 }
 
-.cart-list ::-webkit-scrollbar{
+.cart-list::-webkit-scrollbar{
     width: 0;
 }
 
@@ -323,7 +323,7 @@ h4 {
 .item{
     display: flex;
     align-items: center;
-    gap: .1rem;
+    gap: 1rem;
     padding: .7rem 1rem ;
 
 }
