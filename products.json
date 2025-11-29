@@ -3,9 +3,9 @@
         "id":1,
         "name":"Double Beef Burger",
         "price":"$9.67",
-        "image":"images/Burger.png"
+        "image":"images/burger.png"
     },
-
+ 
      {
         "id":2,
         "name":"Veggic Pizza",
@@ -55,4 +55,4 @@
         "image":"images/spring-roll.png"
     }
    
-]
+] 

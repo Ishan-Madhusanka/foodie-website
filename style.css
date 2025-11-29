@@ -233,7 +233,7 @@ h3 {
 
 /* SECTION 02 */
 
-.Order-card {
+.order-card {
     flex: 1;
     flex-basis: 300px;
     background: var(--pure-white);
@@ -245,7 +245,8 @@ h3 {
         rgba(0, 0, 0, 0.05) 8px 8px 8px inset;
 }
 
-.Order-card img {
+
+.order-card img {
     width: 15rem;
     filter: drop-shadow(rgba(0, 0, 0, 0.2) 0 10px 10px);
 }
@@ -256,7 +257,7 @@ h4 {
     color: var(--lead);
 }
 
-.Order-card .price {
+.order-card .price {
     font-size: 1.7rem;
     color: var(--gold-finger);
     padding: 1.3rem 0 2rem 0;
@@ -323,7 +324,7 @@ h4 {
 .item{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
     padding: .7rem 1rem ;
 
 }
@@ -331,7 +332,9 @@ h4 {
 .cart-list .item:nth-child(even){
     background: var(--eye-ball);
 }
-    
+ .item .detail{
+    flex:2;
+ }  
 
 .item .item-image img{
     width: 5rem;
