@@ -14,10 +14,14 @@ const cardList = document.querySelector('.card-list');
 const cartList = document.querySelector('.cart-list');
 const cartTotal = document.querySelector('.cart-total');
 const cartValue = document.querySelector('.cart-value'); 
+const humburger = document.querySelector('.hamburger');
+const mobileMenu = document.querySelector('.mobile-menu');
+const bars = document.querySelector('.hamburger');
 
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
 closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
-
+humburger.addEventListener('click', ()=> mobileMenu.classList.toggle('mobile-menu-active'));
+humburger.addEventListener('click', ()=> bars.classList.toggle('fa-xmark'));
 
 let productList = [];
 let cartProduct = [];
@@ -29,7 +33,7 @@ const updateTotals = () =>{
 
     document.querySelectorAll('.item').forEach(item =>{
 
-        const quantity =parseInt(item.querySelector('.quantity-value').textContent);
+        const quantity = parseInt(item.querySelector('.quantity-value').textContent);
         const price = parseFloat(item.querySelector('.item-total').textContent.replace('$',''));
 
         totalPrice += price;
@@ -121,10 +125,10 @@ const addToCart = (product) =>{
         updateTotals();
     })
 
-    minusBtn.addEventListener('click',(e)=>{
+    minusBtn.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if(quantity > 1){
+        if(quantity > 1) {
         quantity--;
         quantityValue.textContent = quantity;
         itemTotel.textContent = `$${(price * quantity).toFixed(2)}`;
@@ -132,9 +136,9 @@ const addToCart = (product) =>{
 
         }
         else{
-            cartItem.classList.add('slide-out')
+            cartItem.classList.add('slide-out');
            
-            setTimeout(()=>{
+            setTimeout(() => {
                  cartItem.remove();
                  cartProduct = cartProduct.filter(item => item.id !== product.id);
                  updateTotals();
@@ -142,9 +146,6 @@ const addToCart = (product) =>{
         }
 
 
-        quantity--;
-        quantityValue.textContent = quantity;
-        itemTotel.textContent = `$${(price * quantity).toFixed(2)}`;
     })
 }
 
