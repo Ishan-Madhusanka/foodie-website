@@ -12,6 +12,8 @@ const cartTab = document.querySelector('.cart-tab');
 const closeBtn = document.querySelector('.close-btn');
 const cardList = document.querySelector('.card-list');
 const cartList = document.querySelector('.cart-list');
+const cartTotal = document.querySelector('.cart-total');
+const cartValue = document.querySelector('.cart-value'); 
 
 cartIcon.addEventListener('click', () => cartTab.classList.add('cart-tab-active'));
 closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-active'));
@@ -20,6 +22,23 @@ closeBtn.addEventListener('click', () => cartTab.classList.remove('cart-tab-acti
 let productList = [];
 let cartProduct = [];
 
+const updateTotals = () =>{
+
+    let totalPrice = 0;
+    let totalQuantity = 0;
+
+    document.querySelectorAll('.item').forEach(item =>{
+
+        const quantity =parseInt(item.querySelector('.quantity-value').textContent);
+        const price = parseFloat(item.querySelector('.item-total').textContent.replace('$',''));
+
+        totalPrice += price;
+        totalQuantity += quantity;
+    });
+
+    cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+    cartValue.textContent = totalQuantity;
+}
 const showCards = () => {
 
     productList.forEach(product => {
@@ -87,16 +106,45 @@ const addToCart = (product) =>{
     `;
 
     cartList.appendChild(cartItem);
+    updateTotals();
 
     const plusBtn = cartItem.querySelector('.plus');
     const quantityValue =cartItem.querySelector('.quantity-value');
     const itemTotel = cartItem.querySelector('.item-total');
+    const minusBtn = cartItem.querySelector('.minus');
 
     plusBtn.addEventListener('click',(e)=>{
         e.preventDefault();
         quantity++;
         quantityValue.textContent = quantity;
-        itemTotel.textContent = `$${price * quantity}`
+        itemTotel.textContent = `$${(price * quantity).toFixed(2)}`;
+        updateTotals();
+    })
+
+    minusBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
+
+        if(quantity > 1){
+        quantity--;
+        quantityValue.textContent = quantity;
+        itemTotel.textContent = `$${(price * quantity).toFixed(2)}`;
+        updateTotals();
+
+        }
+        else{
+            cartItem.classList.add('slide-out')
+           
+            setTimeout(()=>{
+                 cartItem.remove();
+                 cartProduct = cartProduct.filter(item => item.id !== product.id);
+                 updateTotals();
+            }, 300)
+        }
+
+
+        quantity--;
+        quantityValue.textContent = quantity;
+        itemTotel.textContent = `$${(price * quantity).toFixed(2)}`;
     })
 }
 
